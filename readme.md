@@ -1,4 +1,4 @@
-# Blackjack in React/Redux
+# Blackjack
 
 A basic exercise implementing Blackjack in React/Redux. Represents 3-4 hours work so there is plenty to improve on.
 
