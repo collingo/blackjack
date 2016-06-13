@@ -12,10 +12,16 @@ function mapDispatchToProps (dispatch, ownProps) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(({ player, stand, hit }) => <div>
-  <h2>{player.get('name')}</h2>
-  <p>Bet: {player.get('bet')}</p>
-  <Hand hand={player.get('hand')} />
-  <button onClick={stand}>Stand</button>
-  <button onClick={hit}>Hit</button>
-</div>)
+export default connect(mapStateToProps, mapDispatchToProps)(({ player, stand, hit }) => {
+  let buttons = player.get('status') === 'OK' && [
+    <button key='stand' onClick={stand}>Stand</button>,
+    <button key='hit' onClick={hit}>Hit</button>
+  ]
+  return <div>
+    <h2>{player.get('name')}</h2>
+    <Hand hand={player.get('hand')} />
+    <p>Score: {player.get('score')}</p>
+    <p>Status: {player.get('status')}</p>
+    {buttons}
+  </div>
+})

@@ -18,7 +18,8 @@ const App = connect(mapStateToProps, mapDispatchToProps)(({ game, newGame }) => 
     gameHtml = <Game game={game}/>
   }
   return <div id="app">
-    {gameHtml || <button onClick={newGame}>New game</button>}
+    <button onClick={newGame}>New game</button>
+    {gameHtml}
   </div>
 })
 
